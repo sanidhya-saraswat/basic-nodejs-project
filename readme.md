@@ -1,6 +1,6 @@
-# Project Management
+# Basic Node.js Project
 
-This is a Sample Node.js API project. It contains most of the things which you may need for any basic Node.js Application like MongoDB,Swagger, etc.
+This is a Sample Node.js API project. It contains most of the things which you may need for any basic Node.js Application like MongoDB,Swagger,unit testing etc.
 
 Project Management is a Node.js application which allows you to manage projects for your company and assign/manage users to projects. We have exposed multiple APIs like get all projects,create project, update project, create a user etc to allow you to access the different functionalities provided by this application.
 
