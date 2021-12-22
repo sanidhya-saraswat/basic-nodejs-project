@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --exit ./tests",
     "start": "node index",
-    "local": "nodemon index"
+    "local": "NODE_ENV=local nodemon index"
   },
   "author": "",
   "license": "ISC",
