@@ -17,7 +17,7 @@ module.exports.getAll = async (req, res) => {
     const users = await User.find({})
     return res.status(200).send({ success: true, data: users })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -45,7 +45,7 @@ module.exports.getById = async (req, res) => {
     if (!user) return res.status(404).send({ success: false, error: 'User not found' })
     return res.status(200).send({ success: true, data: user })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -74,7 +74,7 @@ module.exports.create = async (req, res) => {
     await User.create(req.body)
     return res.status(200).send({ success: true })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -112,7 +112,7 @@ module.exports.update = async (req, res) => {
     await user.save()
     return res.status(200).send({ success: true })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -138,6 +138,6 @@ module.exports.delete = async (req, res) => {
     await User.deleteOne({ id: req.params.id })
     return res.status(200).send({ success: true })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }

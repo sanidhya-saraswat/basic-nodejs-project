@@ -18,7 +18,7 @@ module.exports.getAll = async (req, res) => {
     return res.status(200).send({ success: true, data: projects })
   } catch (err) {
     console.log(err)
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -45,7 +45,7 @@ module.exports.getById = async (req, res) => {
     if (!project) return res.status(404).send({ success: false, error: 'Project not found' })
     return res.status(200).send({ success: true, data: project })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -74,7 +74,7 @@ module.exports.create = async (req, res) => {
     await Project.create(req.body)
     return res.status(200).send({ success: true })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -113,7 +113,7 @@ module.exports.update = async (req, res) => {
     await project.save()
     return res.status(200).send({ success: true })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
 
@@ -139,6 +139,6 @@ module.exports.delete = async (req, res) => {
     await Project.deleteOne({ id: req.params.id })
     return res.status(200).send({ success: true })
   } catch (err) {
-    return res.status(500).send({ success: false, error: err })
+    return res.status(500).send({ success: false, error: err.message})
   }
 }
